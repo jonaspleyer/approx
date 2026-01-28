@@ -12,7 +12,7 @@ repository = "https://github.com/jonaspleyer/approxim"
 readme = "README.md"
 
 keywords = [
-    "approximimate",
+    "approximate",
     "assert",
     "comparison",
     "equality",
