@@ -489,8 +489,8 @@ mod test_vec {
 }
 
 #[cfg(feature = "tuple_impl")]
-mod test_tuple{
-    use approxim::UlpsEq;
+mod test_tuple {
+    use approx::UlpsEq;
 
     #[test]
     fn test_basic() {

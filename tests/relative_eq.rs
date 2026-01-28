@@ -526,8 +526,8 @@ mod test_vec {
 }
 
 #[cfg(feature = "tuple_impl")]
-mod test_tuple{
-    use approxim::RelativeEq;
+mod test_tuple {
+    use approx::RelativeEq;
 
     #[test]
     fn test_basic() {

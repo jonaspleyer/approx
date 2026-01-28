@@ -520,8 +520,8 @@ mod test_vec {
 }
 
 #[cfg(feature = "tuple_impl")]
-mod test_tuple{
-    use approxim::AbsDiffEq;
+mod test_tuple {
+    use approx::AbsDiffEq;
 
     #[test]
     fn test_basic() {
