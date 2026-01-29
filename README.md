@@ -1,3 +1,6 @@
+# ❗ Note ❗
+This crate has been merged into the [`approx`](https://github.com/brendanzab/approx/) crate where it will be maintained from now on.
+
 # approx
 
 ![Test](https://img.shields.io/github/actions/workflow/status/brendanzab/approx/test.yml?style=flat-square&label=Test)
