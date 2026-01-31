@@ -183,3 +183,64 @@ macro_rules! assert_ulps_ne {
         __assert_approx!(ulps_ne, $given, $expected $(, $opt = $val)*)
     };
 }
+
+macro_rules! make_debug (
+    ($new_name:ident, $macro_name:ident) => {make_debug!($new_name, $macro_name, $);};
+    ($new_name:ident, $macro_name:ident, $dol:tt) => {
+        /// Debug version of [`
+        #[doc = stringify!($macro_name)]
+        /// `].
+        ///
+        /// This macro is only active when the `cfg!(debug_assertions)` criterion is met.
+        /// This is usually the case when libraries are compiled in debug or release mode.
+        /// This macro will return `true` when `cfg!(debug_assertions)` is not active.
+        ///
+        /// ```text
+        /// if cfg!(debug_assertions) {
+        ///     // .. run macro
+        /// } else {
+        ///     true
+        /// }
+        /// ```
+        #[macro_export]
+        macro_rules! $new_name {
+            ($dol($to:tt)*) => {if cfg!(debug_assertions) {$macro_name!($dol($to)*)} else {true}}
+        }
+    };
+    (@assert $new_name:ident, $macro_name:ident) => {make_debug!(@assert $new_name, $macro_name, $);};
+    (@assert $new_name:ident, $macro_name:ident, $dol:tt) => {
+        /// Debug version of [`
+        #[doc = stringify!($macro_name)]
+        /// `]
+        ///
+        /// This macro is only active when the `cfg!(debug_assertions)` criterion is met.
+        /// This is usually the case when libraries are compiled in debug or release mode.
+        /// This macro  never panic when `cfg!(debug_assertions)` is not active.
+        ///
+        /// ```text
+        /// if cfg!(debug_assertions) {
+        ///     // .. run macro with assertion
+        /// }
+        /// ```
+        #[macro_export]
+        macro_rules! $new_name {
+            ($dol($to:tt)*) => {if cfg!(debug_assertions) {$macro_name!($dol($to)*)}}
+        }
+
+    };
+);
+
+make_debug!(debug_abs_diff_eq, abs_diff_eq);
+make_debug!(debug_abs_diff_ne, abs_diff_ne);
+make_debug!(@assert debug_assert_abs_diff_eq, assert_abs_diff_eq);
+make_debug!(@assert debug_assert_abs_diff_ne, assert_abs_diff_ne);
+
+make_debug!(debug_relative_eq, relative_eq);
+make_debug!(debug_relative_ne, relative_ne);
+make_debug!(@assert debug_assert_relative_eq, assert_relative_eq);
+make_debug!(@assert debug_assert_relative_ne, assert_relative_ne);
+
+make_debug!(debug_ulps_eq, ulps_eq);
+make_debug!(debug_ulps_ne, ulps_ne);
+make_debug!(@assert debug_assert_ulps_eq, assert_ulps_eq);
+make_debug!(@assert debug_assert_ulps_ne, assert_ulps_ne);
