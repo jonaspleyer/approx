@@ -681,3 +681,18 @@ mod test_indexmap {
         );
     }
 }
+
+#[test]
+fn test_debug_abs_diff() {
+    let x = 1.0;
+    let y = if cfg!(debug_assertions) { 1.1 } else { 2.0 };
+    assert!(debug_abs_diff_eq!(x, y, epsilon = 0.15));
+    debug_assert_abs_diff_eq!(x, y, epsilon = 0.15);
+
+    let x = 50798.34f32;
+    let y = 29580.13f32;
+    let epsilon = if cfg!(debug_assertions) { 0.0 } else { 2.2e4 };
+
+    assert!(debug_abs_diff_ne!(x, y, epsilon = epsilon));
+    debug_assert_abs_diff_ne!(x, y, epsilon = epsilon);
+}
