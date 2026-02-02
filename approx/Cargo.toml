@@ -20,14 +20,13 @@ keywords = [
 ]
 
 [package.metadata.docs.rs]
-features = ["std", "num-complex", "array_impl", "tuple_impl", "ordered-float"]
+features = ["num-complex", "array_impl", "tuple_impl", "ordered-float"]
 
 [lib]
 name = "approx"
 
 [features]
-default = ["std", "derive"]
-std = []
+default = ["derive"]
 array_impl = []
 tuple_impl = ["paste"]
 vec_impl = []
