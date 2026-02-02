@@ -7,9 +7,9 @@ use core::hash::{BuildHasher, Hash};
 use indexmap::IndexMap;
 #[cfg(feature = "num_complex")]
 use num_complex::Complex;
-#[cfg(feature = "ordered-float")]
+#[cfg(feature = "ordered_float")]
 use num_traits::Float;
-#[cfg(feature = "ordered-float")]
+#[cfg(feature = "ordered_float")]
 use ordered_float::{NotNan, OrderedFloat};
 
 /// Equality that is defined using the absolute difference of two numbers.
@@ -346,8 +346,8 @@ where
     }
 }
 
-#[cfg(feature = "ordered-float")]
-#[cfg_attr(docsrs, doc(cfg(feature = "ordered-float")))]
+#[cfg(feature = "ordered_float")]
+#[cfg_attr(docsrs, doc(cfg(feature = "ordered_float")))]
 impl<T: AbsDiffEq + Copy> AbsDiffEq for NotNan<T> {
     type Epsilon = T::Epsilon;
 
@@ -362,8 +362,8 @@ impl<T: AbsDiffEq + Copy> AbsDiffEq for NotNan<T> {
     }
 }
 
-#[cfg(feature = "ordered-float")]
-#[cfg_attr(docsrs, doc(cfg(feature = "ordered-float")))]
+#[cfg(feature = "ordered_float")]
+#[cfg_attr(docsrs, doc(cfg(feature = "ordered_float")))]
 impl<T: AbsDiffEq + Float + ordered_float::FloatCore> AbsDiffEq<T> for NotNan<T> {
     type Epsilon = T::Epsilon;
 
@@ -378,8 +378,8 @@ impl<T: AbsDiffEq + Float + ordered_float::FloatCore> AbsDiffEq<T> for NotNan<T>
     }
 }
 
-#[cfg(feature = "ordered-float")]
-#[cfg_attr(docsrs, doc(cfg(feature = "ordered-float")))]
+#[cfg(feature = "ordered_float")]
+#[cfg_attr(docsrs, doc(cfg(feature = "ordered_float")))]
 impl<T: AbsDiffEq + Float + ordered_float::FloatCore> AbsDiffEq for OrderedFloat<T> {
     type Epsilon = T::Epsilon;
 
@@ -394,8 +394,8 @@ impl<T: AbsDiffEq + Float + ordered_float::FloatCore> AbsDiffEq for OrderedFloat
     }
 }
 
-#[cfg(feature = "ordered-float")]
-#[cfg_attr(docsrs, doc(cfg(feature = "ordered-float")))]
+#[cfg(feature = "ordered_float")]
+#[cfg_attr(docsrs, doc(cfg(feature = "ordered_float")))]
 impl<T: AbsDiffEq + Float + ordered_float::FloatCore> AbsDiffEq<T> for OrderedFloat<T> {
     type Epsilon = T::Epsilon;
 

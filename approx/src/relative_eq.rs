@@ -9,9 +9,9 @@ use indexmap::IndexMap;
 #[cfg(feature = "num_complex")]
 use num_complex::Complex;
 
-#[cfg(feature = "ordered-float")]
+#[cfg(feature = "ordered_float")]
 use num_traits::Float;
-#[cfg(feature = "ordered-float")]
+#[cfg(feature = "ordered_float")]
 use ordered_float::{NotNan, OrderedFloat};
 
 /// Equality comparisons between two numbers using both the absolute difference and
@@ -365,8 +365,8 @@ where
     }
 }
 
-#[cfg(feature = "ordered-float")]
-#[cfg_attr(docsrs, doc(cfg(feature = "ordered-float")))]
+#[cfg(feature = "ordered_float")]
+#[cfg_attr(docsrs, doc(cfg(feature = "ordered_float")))]
 impl<T: RelativeEq + Copy> RelativeEq for NotNan<T> {
     #[inline]
     fn default_max_relative() -> Self::Epsilon {
@@ -389,8 +389,8 @@ impl<T: RelativeEq + Copy> RelativeEq for NotNan<T> {
     }
 }
 
-#[cfg(feature = "ordered-float")]
-#[cfg_attr(docsrs, doc(cfg(feature = "ordered-float")))]
+#[cfg(feature = "ordered_float")]
+#[cfg_attr(docsrs, doc(cfg(feature = "ordered_float")))]
 impl<T: RelativeEq + Float + ordered_float::FloatCore> RelativeEq<T> for NotNan<T> {
     #[inline]
     fn default_max_relative() -> Self::Epsilon {
@@ -403,8 +403,8 @@ impl<T: RelativeEq + Float + ordered_float::FloatCore> RelativeEq<T> for NotNan<
     }
 }
 
-#[cfg(feature = "ordered-float")]
-#[cfg_attr(docsrs, doc(cfg(feature = "ordered-float")))]
+#[cfg(feature = "ordered_float")]
+#[cfg_attr(docsrs, doc(cfg(feature = "ordered_float")))]
 impl<T: RelativeEq + Float + ordered_float::FloatCore> RelativeEq for OrderedFloat<T> {
     #[inline]
     fn default_max_relative() -> Self::Epsilon {
@@ -427,8 +427,8 @@ impl<T: RelativeEq + Float + ordered_float::FloatCore> RelativeEq for OrderedFlo
     }
 }
 
-#[cfg(feature = "ordered-float")]
-#[cfg_attr(docsrs, doc(cfg(feature = "ordered-float")))]
+#[cfg(feature = "ordered_float")]
+#[cfg_attr(docsrs, doc(cfg(feature = "ordered_float")))]
 impl<T: RelativeEq + Float + ordered_float::FloatCore> RelativeEq<T> for OrderedFloat<T> {
     #[inline]
     fn default_max_relative() -> Self::Epsilon {

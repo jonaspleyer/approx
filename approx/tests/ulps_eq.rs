@@ -584,7 +584,7 @@ mod test_complex {
     }
 }
 
-#[cfg(feature = "ordered-float")]
+#[cfg(feature = "ordered_float")]
 mod test_ordered_float {
     extern crate ordered_float;
     pub use self::ordered_float::OrderedFloat;

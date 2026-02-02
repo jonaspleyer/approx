@@ -20,7 +20,7 @@ keywords = [
 ]
 
 [package.metadata.docs.rs]
-features = ["num_complex", "array_impl", "tuple_impl", "ordered-float"]
+features = ["num_complex", "array_impl", "tuple_impl", "ordered_float"]
 
 [lib]
 name = "approx"
@@ -32,7 +32,7 @@ tuple_impl = ["paste"]
 vec_impl = []
 indexmap_impl = ["dep:indexmap"]
 derive = ["dep:approx-derive"]
-ordered-float = ["dep:ordered-float"]
+ordered_float = ["dep:ordered-float"]
 num_complex = ["dep:num-complex"]
 
 [dependencies]
