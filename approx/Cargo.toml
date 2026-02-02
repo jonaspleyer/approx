@@ -26,7 +26,7 @@ features = ["num-complex", "array_impl", "tuple_impl", "ordered-float"]
 name = "approx"
 
 [features]
-default = []
+default = ["array_impl", "tuple_impl"]
 array_impl = []
 tuple_impl = ["paste"]
 vec_impl = []
