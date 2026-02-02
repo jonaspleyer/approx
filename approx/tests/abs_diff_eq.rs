@@ -557,7 +557,7 @@ mod test_tuple {
     }
 }
 
-#[cfg(feature = "num-complex")]
+#[cfg(feature = "num_complex")]
 mod test_complex {
     extern crate num_complex;
     pub use self::num_complex::Complex;

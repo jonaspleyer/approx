@@ -164,8 +164,8 @@
 #![allow(clippy::transmute_float_to_int)]
 #![cfg_attr(docsrs, feature(doc_cfg))]
 
-#[cfg(feature = "num-complex")]
-#[cfg_attr(docsrs, doc(cfg(feature = "num-complex")))]
+#[cfg(feature = "num_complex")]
+#[cfg_attr(docsrs, doc(cfg(feature = "num_complex")))]
 extern crate num_complex;
 extern crate num_traits;
 #[cfg(feature = "ordered-float")]

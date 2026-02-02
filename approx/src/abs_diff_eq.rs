@@ -5,7 +5,7 @@ use core::cell;
 use core::hash::{BuildHasher, Hash};
 #[cfg(feature = "indexmap_impl")]
 use indexmap::IndexMap;
-#[cfg(feature = "num-complex")]
+#[cfg(feature = "num_complex")]
 use num_complex::Complex;
 #[cfg(feature = "ordered-float")]
 use num_traits::Float;
@@ -326,8 +326,8 @@ where
     }
 }
 
-#[cfg(feature = "num-complex")]
-#[cfg_attr(docsrs, doc(cfg(feature = "num-complex")))]
+#[cfg(feature = "num_complex")]
+#[cfg_attr(docsrs, doc(cfg(feature = "num_complex")))]
 impl<T: AbsDiffEq> AbsDiffEq for Complex<T>
 where
     T::Epsilon: Clone,
