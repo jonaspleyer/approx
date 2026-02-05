@@ -703,3 +703,19 @@ mod test_indexmap {
         );
     }
 }
+
+#[test]
+fn test_debug_relative_diff() {
+    let x = 10.0;
+    let y = if cfg!(debug_assertions) { 11.1 } else { 2.0 };
+
+    debug_assert_relative_eq!(x, y, max_relative = 0.15);
+    assert!(debug_relative_eq!(x, y, max_relative = 0.15));
+
+    let x = 249587e-3;
+    let y = 248938e-3;
+    let max_relative = if cfg!(debug_assertions) { 0.0 } else { 1.0 };
+
+    debug_assert_relative_ne!(x, y, max_relative = max_relative);
+    assert!(debug_relative_ne!(x, y, max_relative = max_relative));
+}

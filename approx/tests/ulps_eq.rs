@@ -658,3 +658,20 @@ mod test_indexmap {
         );
     }
 }
+
+#[test]
+fn test_debug_ulps_diff() {
+    let x = 83055.0;
+    let y = 83055.2;
+    let m = if cfg!(debug_assertions) { 3 } else { 0 };
+
+    debug_assert_ulps_ne!(x, y, max_ulps = m);
+    assert!(debug_ulps_ne!(x, y, max_ulps = m));
+
+    let x = 50798.34f32;
+    let y = 50798.13f32;
+    let m = if cfg!(debug_assertions) { 55 } else { 0 };
+
+    assert!(debug_ulps_eq!(x, y, max_ulps = m));
+    debug_assert_ulps_eq!(x, y, max_ulps = m);
+}
